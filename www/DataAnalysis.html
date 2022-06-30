@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Query page</title>
+</head>
+
+<body>
+    <h1>The query has started.</h1>
+    <p> Wait some second and next Tries to return to the home page (the browser will struggle to load the page)</p>
+    <li><a href="Home.html">Home</a></li>
+    <li><a href="testPage.html">testPage</a></li>
+</body>
+
+</html>
+
+
+<script type="text/javascript" src="./js/authentication.js"></script>
+<script type="text/javascript" src="./js/cookieManager.js"></script>
+
+<script>
+    window.addEventListener('load', (event) => {
+
+        serverRequest("/massiveQuery", {}, 0, function (result) {
+            if (result.code >= 400)
+                alert("Unable to get info from the server");
+            else
+                console.log('result')
+        });
+    });
+
+
+</script>

@@ -51,17 +51,17 @@ var settings = {
 }
 
 
-databaseTest.connect(settings).then(
-    logger.log("Connection to SQL server established!")
+databaseTest.connect(settings).then(    // doesn't work tells Connection to SQL server established! in every case
+    // logger.log("Connection to SQL server established!")
 ).catch(function(err){
-    logger.error("Connection to SQL server refused!","SYST")
+    // logger.error("Connection to SQL server refused!","SYST")
 })
 
 app.post('/massiveQuery', async (req, res) => {
     logger.warning("massiveQuery started!","SYST")
     var query = `
         SELECT  *
-        FROM [database].[dbo].[dbEvents]
+        FROM [dbo].[dbEvents]
     `;                                                                      // update the [database] with the database name
 
     databaseTest.query(query).then(function (a) {
